@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins');
+:root {
+    --base-clr: #11121a;
+    --line-clr: #42434a;
+    --hover-clr: #222533;
+    --text-clr: #e6e6ef;
+    --accent-clr: #5e63ff;
+    --second-text-clr: #b0b3c1;
+}
+* { margin: 0; padding: 0;}
+html {  font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.5rem;}
+body {
+    min-height: 100vh;
+    background-color: var(--base-clr);
+    color: var(--text-clr);
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+#sidebar {
+    height: 100vh;
+    width: 200px;
+    padding:5px 1px;
+    border-right: 1px solid var(--line-clr);
+    position: sticky;
+    top: 0;
+    align-self: start;
+    transition: 300ms ease-in-out;
+    overflow: hidden;
+    text-wrap: nowrap;
+}
+#sidebar.close{
+    padding: 5px;
+    width: 45px;
+}
+#sidebar ul { list-style: none;}
+#sidebar>ul>li:first-child {
+    justify-content: flex-end;
+    display: flex;
+    margin-bottom: 16px;
+    .logo { font-weight: 600;  }
+}
+#sidebar ul li.active a {
+    color: var(--accent-clr);
+ i {   fill: var(--accent-clr) }
+}
+#sidebar a,#sidebar .dropdown-btn,#sidebar .logo {
+    border-radius: .5em;
+    padding: .85em;
+    text-decoration: none;
+    color: var(--text-clr);
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+.dropdown-btn{
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+}
+#sidebar a span, #sidebar .dropdown-btn span{   flex-grow: 1;}
+#sidebar a:hover, #sidebar .dropdown-btn:hover{ background-color: var(--hover-clr);}
+#sidebar .sub-menu{
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: 300ms ease-in-out;
+    >div {overflow: hidden;  }
+}
+#sidebar .sub-menu.show{grid-template-rows: 1fr;}
+main { padding: min(30px, 7%);}
+main p {
+    color: var(--second-text-clr);
+    margin: 5px 0px 15px 0px;
+}
+.container {
+    border: 1px solid var(--line-clr);
+    border-radius: 1em;
+    margin-bottom: 20px;
+    padding: min(3em, 15%);
+    h2,p,h5{ margin-top: 1em;}
+}
+.dropdown-btn i.fa-caret-down{
+    transition: 200ms ease-in-out;
+}
+.rotate i.fa-caret-down{
+    rotate:180deg;
+}
+#sidebar .sub-menu a{
+    padding-left: 3px;
+}
+#toggle-btn{
+    margin-left: auto;
+    padding: 1em;
+    border: none;
+    border-radius: 0.5em;
+    cursor: pointer;
+    i{
+        transition: rotate 150ms ease;
+    }
+}
+#toggle-btn:hover{
+    background-color: var(--hover-clr);
+}
+@media (min-width: 575px) {
+    .container, .container-lg, .container-md, .container-sm {
+        max-width: 3000px;
+    }
+}
